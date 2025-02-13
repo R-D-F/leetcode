@@ -13,7 +13,19 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        return s
+        stack = []
+        d = {")": "(", "]": "[", "}": "{"}
+        for i in s:
+            if i in d:
+                if stack:
+                    top_element = stack.pop()
+                else:
+                    top_element = "#"
+                if d[i] != top_element:
+                    return False
+            else:
+                stack.append(i)
+        return not stack
 
 
 sol = Solution()
