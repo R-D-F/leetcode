@@ -28,24 +28,20 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        current = 9999999
-        to_remove = []
-        for i in nums:
-            if i == current:
-                to_remove.append(i)
+        if not nums:
+            return 0
 
-            else:
+        counter = 0
+        for num in nums:
+            if nums[counter] != num:
+                counter += 1
+                nums[counter] = num
 
-                current = i
-        for t in to_remove:
-
-            nums.remove(t)
-
-        return len(nums)
+        return counter + 1
 
 
 case_1 = [1, 1, 2]
-case_2 = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
+case_2 = [0, 0, 1, 1, 1, 3, 3, 4, 6]
 sol = Solution()
 print(sol.removeDuplicates(case_1))
 print(sol.removeDuplicates(case_2))
