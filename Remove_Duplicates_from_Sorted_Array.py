@@ -30,7 +30,7 @@ class Solution(object):
         """
         current = 9999999
         to_remove = []
-        for count, i in enumerate(nums):
+        for i in nums:
             if i == current:
                 to_remove.append(i)
 
